@@ -32,7 +32,7 @@ class App extends Component {
       this.setState({ daiTokenBalance: daiTokenBalance.toString() })
       console.log({ Balance:  daiTokenBalance})
     } else {
-      window.alert('DaiToken contract not deployed to detected network.')
+      window.alert('Contracts not deployed to the current network, please login with MetaMask and connect to Rinkeby Test Network.')
     }
 
     // Load DappToken
@@ -43,7 +43,7 @@ class App extends Component {
       let dappTokenBalance = await dappToken.methods.balanceOf(this.state.account).call()
       this.setState({ dappTokenBalance: dappTokenBalance.toString() })
     } else {
-      window.alert('DappToken contract not deployed to detected network.')
+      window.alert('Contracts not deployed to the current network, please login with MetaMask and connect to Rinkeby Test Network.')
     }
 
     // Load TokenFarm
@@ -54,7 +54,7 @@ class App extends Component {
       let stakingBalance = await tokenFarm.methods.stakingBalance(this.state.account).call()
       this.setState({ stakingBalance: stakingBalance.toString() })
     } else {
-      window.alert('TokenFarm contract not deployed to detected network.')
+      window.alert('Contracts not deployed to the current network, please login with MetaMask and connect to Rinkeby Test Network.')
     }
 
     this.setState({ loading: false })
@@ -69,7 +69,7 @@ class App extends Component {
       window.web3 = new Web3(window.web3.currentProvider)
     }
     else {
-      window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
+      window.alert('Non-Ethereum browser detected. You should install MetaMask!')
     }
   }
 
